@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Healthcare Cross with Rounded Shield Geometry -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M48,34 C48,31.79 49.79,30 52,30 L56,30 C58.21,30 60,31.79 60,34 L60,48 L74,48 C76.21,48 78,49.79 78,52 L78,56 C78,58.21 76.21,60 74,60 L60,60 L60,74 C60,76.21 58.21,78 56,78 L52,78 C49.79,78 48,76.21 48,74 L48,60 L34,60 C31.79,60 30,58.21 30,56 L30,52 C30,49.79 31.79,48 34,48 L48,48 Z" />
+    <!-- AI Digital Sparkle / Vision Node -->
+    <path
+        android:fillColor="#4FD8EB"
+        android:pathData="M54,40 C54,47.73 47.73,54 40,54 C47.73,54 54,60.27 54,68 C54,60.27 60.27,54 68,54 C60.27,54 54,47.73 54,40 Z" />
+    <path
+        android:fillColor="#006874"
+        android:pathData="M54,50 A4,4 0 1,0 54,58 A4,4 0 1,0 54,50" />
+</vector>

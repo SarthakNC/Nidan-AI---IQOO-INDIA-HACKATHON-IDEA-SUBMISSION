@@ -1,0 +1,6 @@
+{
+  "name": "Nidan AI",
+  "description": "Offline AI-powered frontline healthcare triage decision-support tool for frontline workers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
