@@ -46,28 +46,28 @@ Nidan AI bridges the gap between community field visits and Primary Health Centr
 
 ```mermaid
 flowchart TD
-    A[Frontline Worker / ASHA] -->|Patient Intake| B(Demographics & ABHA ID)
-    B --> C{Multimodal Screening}
+    A["Frontline Worker (ASHA)"] -->|"Patient Intake"| B["Demographics and ABHA ID"]
+    B --> C{"Multimodal Screening"}
     
-    C -->|Camera Vision| D[Eyelid Pallor / MUAC Reticle]
-    C -->|Microphone Voice| E[Multilingual Speech Triage]
+    C -->|"Camera Vision"| D["Eyelid Pallor / MUAC Reticle"]
+    C -->|"Microphone Voice"| E["Multilingual Speech Triage"]
     
-    D -->|Local Inference Engine| F[Structured Visual Findings]
-    E -->|On-Device ASR & NLP Engine| G[Clinical Symptom Entities]
+    D -->|"Local Inference Engine"| F["Structured Visual Findings"]
+    E -->|"On-Device ASR and NLP"| G["Clinical Symptom Entities"]
     
-    F --> H[Deterministic Clinical Triage Engine]
+    F --> H["Deterministic Clinical Triage Engine"]
     G --> H
     
-    H -->|Rule-Based Evaluation| I{Triage Classification}
-    I -->|Low Risk| J[🟢 GREEN: Routine Follow-up]
-    I -->|Moderate Risk| K[🟡 YELLOW: PHC Consultation]
-    I -->|Urgent Danger Signs| L[🔴 RED: Immediate Referral]
+    H -->|"Rule-Based Evaluation"| I{"Triage Classification"}
+    I -->|"Low Risk"| J["GREEN: Routine Follow-up"]
+    I -->|"Moderate Risk"| K["YELLOW: PHC Consultation"]
+    I -->|"Urgent Danger Signs"| L["RED: Immediate Referral"]
     
-    J --> M[(Local Encrypted Room Database)]
+    J --> M[("Local Encrypted Room Database")]
     K --> M
     L --> M
     
-    M -->|iQOO Office Kit Bridge| N[PHC Doctor Desktop Handover]
+    M -->|"iQOO Office Kit Bridge"| N["PHC Doctor Desktop Handover"]
 ```
 
 ---
@@ -167,50 +167,50 @@ Nidan AI is built strictly adhering to modern **Android Clean Architecture** and
 
 ```mermaid
 graph TB
-    subgraph Presentation_Layer ["Presentation Layer (Jetpack Compose & Material 3)"]
-        UI_Home[HomeScreen]
-        UI_NewPatient[NewPatientScreen]
-        UI_Anemia[AnemiaScanScreen]
-        UI_Muac[MuacScanScreen]
-        UI_Voice[VoiceTriageScreen]
-        UI_Patients[PatientsListScreen]
-        UI_Profile[PatientProfileScreen]
-        UI_History[HistoryScreen]
-        UI_Handover[HandoverScreen]
-        UI_Settings[SettingsScreen]
+    subgraph Presentation_Layer ["Presentation Layer (Jetpack Compose and Material 3)"]
+        UI_Home["HomeScreen"]
+        UI_NewPatient["NewPatientScreen"]
+        UI_Anemia["AnemiaScanScreen"]
+        UI_Muac["MuacScanScreen"]
+        UI_Voice["VoiceTriageScreen"]
+        UI_Patients["PatientsListScreen"]
+        UI_Profile["PatientProfileScreen"]
+        UI_History["HistoryScreen"]
+        UI_Handover["HandoverScreen"]
+        UI_Settings["SettingsScreen"]
     end
 
-    subgraph ViewModel_Layer ["State & ViewModel Layer"]
-        VM_Home[HomeViewModel]
-        VM_Patient[PatientsViewModel / NewPatientViewModel]
-        VM_Anemia[AnemiaScanViewModel]
-        VM_Muac[MuacScanViewModel]
-        VM_Voice[VoiceTriageViewModel]
-        VM_History[HistoryViewModel]
-        VM_Handover[HandoverViewModel]
-        VM_Settings[SettingsViewModel]
+    subgraph ViewModel_Layer ["State and ViewModel Layer"]
+        VM_Home["HomeViewModel"]
+        VM_Patient["PatientsViewModel / NewPatientViewModel"]
+        VM_Anemia["AnemiaScanViewModel"]
+        VM_Muac["MuacScanViewModel"]
+        VM_Voice["VoiceTriageViewModel"]
+        VM_History["HistoryViewModel"]
+        VM_Handover["HandoverViewModel"]
+        VM_Settings["SettingsViewModel"]
     end
 
-    subgraph Domain_Layer ["Domain & Decision Logic Layer"]
-        TriageEngine[DeterministicTriageEngine]
-        TriageRules[Clinical TriageRules]
-        Models[Patient, ScreeningRecord, ScreeningFinding, TriageResult]
+    subgraph Domain_Layer ["Domain and Decision Logic Layer"]
+        TriageEngine["DeterministicTriageEngine"]
+        TriageRules["Clinical TriageRules"]
+        Models["Patient, ScreeningRecord, ScreeningFinding, TriageResult"]
     end
 
-    subgraph AI_Abstraction_Layer ["AI & Hardware Inference Abstraction"]
-        VisionEngine[VisionInferenceEngine / MockVisionInferenceEngine]
-        SpeechEngine[SpeechRecognitionEngine / MockSpeechRecognitionEngine]
-        ReasoningEngine[ClinicalReasoningEngine / MockClinicalReasoningEngine]
-        BackendAbstraction[OnDeviceInferenceBackend / QualcommQNNInferenceBackend]
+    subgraph AI_Abstraction_Layer ["AI and Hardware Inference Abstraction"]
+        VisionEngine["VisionInferenceEngine / MockVisionInferenceEngine"]
+        SpeechEngine["SpeechRecognitionEngine / MockSpeechRecognitionEngine"]
+        ReasoningEngine["ClinicalReasoningEngine / MockClinicalReasoningEngine"]
+        BackendAbstraction["OnDeviceInferenceBackend / QualcommQNNInferenceBackend"]
     end
 
-    subgraph Data_Layer ["Data & Persistence Layer"]
-        PatientRepo[PatientRepository]
-        ScreeningRepo[ScreeningRepository]
-        RoomDB[(NidanDatabase - SQLite)]
-        DAOs[PatientDao & ScreeningDao]
-        OfficeKit[OfficeKitBridge / MockOfficeKitBridge]
-        SecStorage[SecureStorage AES-GCM Abstraction]
+    subgraph Data_Layer ["Data and Persistence Layer"]
+        PatientRepo["PatientRepository"]
+        ScreeningRepo["ScreeningRepository"]
+        RoomDB[("NidanDatabase - SQLite")]
+        DAOs["PatientDao and ScreeningDao"]
+        OfficeKit["OfficeKitBridge / MockOfficeKitBridge"]
+        SecStorage["SecureStorage AES-GCM Abstraction"]
     end
 
     Presentation_Layer --> ViewModel_Layer
@@ -230,35 +230,40 @@ Nidan AI incorporates a modular AI engine architecture designed for lightweight,
 ```mermaid
 flowchart LR
     subgraph Input ["Multimodal Input"]
-        Cam[Camera Frame / ROI]
-        Mic[Raw Audio Buffer]
-        Text[Spoken Notes]
+        Cam["Camera Frame / ROI"]
+        Mic["Raw Audio Buffer"]
+        Text["Spoken Notes"]
     end
 
     subgraph Abstraction ["AI Inference Abstraction Layer"]
-        VIE[VisionInferenceEngine]
-        SRE[SpeechRecognitionEngine]
-        CRE[ClinicalReasoningEngine]
+        VIE["VisionInferenceEngine"]
+        SRE["SpeechRecognitionEngine"]
+        CRE["ClinicalReasoningEngine"]
     end
 
     subgraph Engine ["Current Prototype Implementation"]
-        MVIE[MockVisionInferenceEngine<br/>• Erythema Index 0.38 vs 0.56<br/>• MUAC 110/121/134 mm]
-        MSRE[MockSpeechRecognitionEngine<br/>• Hindi / Marathi / English ASR]
-        MCRE[MockClinicalReasoningEngine<br/>• Entity & Danger Sign Parser]
+        MVIE["MockVisionInferenceEngine: Erythema Index and MUAC Band Analysis"]
+        MSRE["MockSpeechRecognitionEngine: Hindi, Marathi, and English ASR"]
+        MCRE["MockClinicalReasoningEngine: Symptom Entity and Danger Sign Parser"]
     end
 
     subgraph Target ["Future Hardware Acceleration Target"]
-        QNN[Qualcomm Neural Processing SDK / QNN<br/>Snapdragon Hexagon NPU INT8 Execution]
-        ONNX[ONNX Runtime Mobile<br/>Whisper-tiny & MobileNet-V4]
+        QNN["Qualcomm Neural Processing SDK / QNN Snapdragon Hexagon NPU INT8"]
+        ONNX["ONNX Runtime Mobile: Whisper-tiny and MobileNet-V4"]
     end
 
     Cam --> VIE
     Mic --> SRE
     Text --> CRE
 
-    VIE --> MVIE -.-> QNN
-    SRE --> MSRE -.-> ONNX
-    CRE --> MCRE -.-> QNN
+    VIE --> MVIE
+    MVIE -.-> QNN
+
+    SRE --> MSRE
+    MSRE -.-> ONNX
+
+    CRE --> MCRE
+    MCRE -.-> QNN
 ```
 
 ### Current vs. Future Hardware Integration
@@ -280,7 +285,7 @@ Patient safety is paramount. Nidan AI strictly separates **probabilistic sensory
 sequenceDiagram
     autonumber
     actor ASHA as Frontline Worker
-    participant CamMic as Camera / Microphone
+    participant CamMic as Camera and Microphone
     participant AI as On-Device AI Engine
     participant Gatekeeper as Deterministic Triage Engine
     participant DB as Local Encrypted Database
@@ -288,10 +293,10 @@ sequenceDiagram
 
     ASHA->>CamMic: Capture Eyelid Photo / MUAC Tape / Voice Note
     CamMic->>AI: Raw Bytes / Audio Stream
-    AI->>Gatekeeper: Structured Findings (Erythema: 0.38, Symptoms: [High Fever, Dyspnea])
-    Note over Gatekeeper: Strictly Evaluates Clinical Thresholds<br/>(No Generative Hallucinations)
-    Gatekeeper->>ASHA: 🔴 RED / 🟡 YELLOW / 🟢 GREEN Actionable Protocol
-    ASHA->>DB: Save Patient Record & Triage Outcome
+    AI->>Gatekeeper: Structured Findings (Erythema: 0.38, Symptoms: High Fever, Dyspnea)
+    Note over Gatekeeper: Strictly Evaluates Clinical Thresholds (Zero Generative Hallucinations)
+    Gatekeeper->>ASHA: Return Actionable Protocol (RED / YELLOW / GREEN)
+    ASHA->>DB: Save Patient Record and Triage Outcome
     ASHA->>Doctor: Wireless Handover via iQOO Office Kit Bridge
 ```
 
