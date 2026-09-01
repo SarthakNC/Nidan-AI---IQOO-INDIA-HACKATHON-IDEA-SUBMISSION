@@ -13,11 +13,7 @@
 
 > **"Turning a smartphone into an intelligent, offline point-of-care screening and triage assistant for last-mile healthcare delivery."**
 
----
 
-![Nidan AI Hero Banner](docs/screenshots/01-home.png)
-
----
 
 ## 📌 Executive Overview
 
@@ -450,28 +446,6 @@ To experience the complete end-to-end workflow of Nidan AI in **2 minutes**:
 
 ---
 
-## 🚀 Future Roadmap
-
-```mermaid
-gantt
-    title Nidan AI Development & Deployment Roadmap
-    dateFormat  YYYY-MM-DD
-    section Phase 1: Prototype
-    Jetpack Compose UI & Room DB           :done,    p1_1, 2026-01-01, 2026-03-01
-    Deterministic Clinical Triage Engine   :done,    p1_2, 2026-02-01, 2026-04-01
-    section Phase 2: On-Device AI
-    Whisper-tiny INT8 ASR Integration      :active,  p2_1, 2026-04-01, 2026-06-01
-    MobileNet-V4 Conjunctival Model        :         p2_2, 2026-05-01, 2026-07-01
-    section Phase 3: Snapdragon NPU
-    Qualcomm QNN Hexagon NPU Optimization  :         p3_1, 2026-07-01, 2026-09-01
-    Sub-15ms Local Vision Latency          :         p3_2, 2026-08-01, 2026-10-01
-    section Phase 4: Field Validation
-    Primary Health Centre Clinical Pilot   :         p4_1, 2026-10-01, 2026-12-01
-    ABDM (Ayushman Bharat Digital Mission) :         p4_2, 2026-11-01, 2027-01-01
-```
-
----
-
 ## ⚡ Hackathon Alignment (iQOO India Hackathon)
 
 | Hackathon Dimension | How Nidan AI Delivers |
@@ -497,7 +471,7 @@ gantt
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/nidan-ai.git
+git clone https://github.com/SarthakNC/Nidan-AI---IQOO-INDIA-HACKATHON-IDEA-SUBMISSION.git
 cd nidan-ai
 
 # 2. Open project in Android Studio or compile via command line
@@ -520,30 +494,3 @@ gradle :app:recordRoborazziDebug
 | **Microphone** | `android.permission.RECORD_AUDIO` | Used for vernacular voice symptom capture and audio intake during triage. |
 
 ---
-
-## 🤝 Contributing
-
-Contributions to Nidan AI are welcome! To contribute:
-
-1. Fork the repository.
-2. Create your feature branch (`git checkout -b feature/clinical-rule-enhancement`).
-3. Commit your changes (`git commit -m 'Add pediatric respiratory triage threshold'`).
-4. Push to the branch (`git push origin feature/clinical-rule-enhancement`).
-5. Open a Pull Request.
-
----
-
-## 📄 License
-
-License has not yet been specified.
-
----
-
-## ⚠️ Medical & Legal Disclaimer
-
-**NIDAN AI IS A PROTOTYPE CLINICAL SCREENING AND TRIAGE DECISION-SUPPORT APPLICATION.**
-
-- It is **not** a certified medical diagnostic device or an automated prescribing system.
-- All assessments (Green / Yellow / Red) are intended solely to assist trained healthcare workers in prioritizing patient referrals and follow-ups.
-- Outputs must **never** be treated as a definitive medical diagnosis or replace the clinical judgment of a qualified medical practitioner.
-- Clinical deployment in production healthcare environments requires formal clinical validation, regulatory approval, and health authority authorization.
